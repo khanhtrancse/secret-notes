@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "cSpell.words": [
+    "Amas",
+    "Apoint"
+  ]
+}
