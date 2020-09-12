@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from 'electron';
+import { communication } from './communication';
 
-function createWindow() {
+function createWindow(): void {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
@@ -16,6 +17,7 @@ function createWindow() {
 
   // Open the DevTools.
   win.webContents.openDevTools();
+  communication.setWindow(win);
 }
 
 // This method will be called when Electron has finished
@@ -36,6 +38,8 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+  communication.setWindow(null);
+  // eslint-disable-next-line no-undef
   if (process.platform !== 'darwin') {
     app.quit();
   }

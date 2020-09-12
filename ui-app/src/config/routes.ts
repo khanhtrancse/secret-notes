@@ -3,6 +3,7 @@ import { routeName } from './route-name';
 
 import { LoginPage } from '../pages/Login';
 import { HomePage } from '../pages/Home';
+import { SettingPage } from '../pages/Setting';
 
 export interface RouteConfig {
   path: string;
@@ -13,6 +14,10 @@ export const authRoutes: RouteConfig[] = [
   {
     path: routeName.login,
     component: LoginPage,
+  },
+  {
+    path: routeName.setting,
+    component: SettingPage,
   },
 ];
 

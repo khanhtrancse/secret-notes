@@ -17,9 +17,8 @@ const mapDispatchToProps = {
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-class LoginScreen extends React.Component<PropsFromRedux, {}> {
+class SettingScreen extends React.Component<PropsFromRedux, {}> {
   handleSubmit: (e) => void = (e) => {
-    console.log('Handle submit');
     e.preventDefault();
 
     this.props.login(this.props.auth.form);
@@ -36,7 +35,7 @@ class LoginScreen extends React.Component<PropsFromRedux, {}> {
     const form = this.props.auth.form as AuthForm;
     return (
       <div className="mx-0 w-100 mt-5 pt-5 row justify-content-center align-items-center">
-        <h4 className="w-100 text-center">This note is locked</h4>
+        <h4 className="w-100 text-center">Setting</h4>
         <div className="w-100 text-center">
           Enter the notes password to view locked notes
         </div>
@@ -59,7 +58,7 @@ class LoginScreen extends React.Component<PropsFromRedux, {}> {
   }
 }
 
-export const LoginPage = connect(
+export const SettingPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LoginScreen);
+)(SettingScreen);
