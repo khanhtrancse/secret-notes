@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #1c1c1c;
+  color: white !important;
+}
+
+.div {
+  color: white !important;
 }
 
 code {
@@ -14,4 +20,17 @@ code {
 
 .text-left {
   text-align: left !important;
+}
+
+.ant-form {
+  color: white !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white !important;
 }

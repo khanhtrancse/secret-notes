@@ -1,3 +1,4 @@
 export const routeName = {
-  login: '/login',
+  login: '/',
+  home: '/home',
 };

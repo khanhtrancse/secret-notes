@@ -1,7 +1,8 @@
 import { ComponentClass, FunctionComponent } from 'react';
 import { routeName } from './route-name';
 
-import { Login } from '../pages/Login';
+import { LoginPage } from '../pages/Login';
+import { HomePage } from '../pages/Home';
 
 export interface RouteConfig {
   path: string;
@@ -11,7 +12,11 @@ export interface RouteConfig {
 export const authRoutes: RouteConfig[] = [
   {
     path: routeName.login,
-    component: Login,
+    component: LoginPage,
+  },
+  {
+    path: routeName.home,
+    component: HomePage,
   },
 ];
 
