@@ -5,6 +5,7 @@ export const commonHandler = (
   action: Action,
   initialState: any,
 ): any => {
+  console.log('Handle action', action);
   switch (action.type) {
     case AppTypes.reset:
       return initialState;

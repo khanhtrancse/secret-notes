@@ -1,5 +1,4 @@
 import React from 'react';
-import { Layout } from 'antd';
 import { Route } from 'react-router-dom';
 import { RouteConfig } from '../config/routes';
 
@@ -9,19 +8,9 @@ interface PropsType {
 }
 
 export class MainLayout extends React.Component<PropsType, {}> {
-  state = {
-    collapsed: true,
-  };
-
-  toggle = (): void => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
   render(): JSX.Element {
     return (
-      <Layout className="layout">
+      <section className="layout">
         {this.props.routes.map((item) => {
           return (
             <Route
@@ -31,7 +20,7 @@ export class MainLayout extends React.Component<PropsType, {}> {
             />
           );
         })}
-      </Layout>
+      </section>
     );
   }
 }

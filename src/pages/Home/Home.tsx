@@ -21,7 +21,7 @@ class LoginScreen extends React.Component<PropsFromRedux, {}> {
   render(): JSX.Element {
     return (
       <div className="mx-0 w-100 mt-5 pt-5 row justify-content-center align-items-center">
-        <h5>Secret Notes</h5>
+        <h5 className="text-white">Secret Notes</h5>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mainRoutes } from './config/routes';
+import { mainRoutes, authRoutes } from './config/routes';
 import { MainLayout } from './layouts';
 import { Provider, connect } from 'react-redux';
 import { history } from './config/history';
@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { authAction } from './redux/auth';
 import { routeName } from './config/route-name';
 import { LoginPage } from './pages/Login';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 const store = configureStore(reducer);
 
@@ -19,18 +19,34 @@ const App: React.FC = (props: any) => {
   return (
     <div>
       <ConnectedRouter history={history}>
-        <MainLayout
-          routes={mainRoutes}
-          onLogout={(): any => store.dispatch(authAction.logout())}
-        />
-        <Route path={routeName.login} component={LoginPage} />
+        <Switch>
+          {props.auth.password ? (
+            <MainLayout
+              routes={mainRoutes}
+              onLogout={(): any => store.dispatch(authAction.logout())}
+            />
+          ) : (
+            authRoutes.map((item) => (
+              <Route
+                key={item.path}
+                path={item.path}
+                component={item.component}
+              />
+            ))
+          )}
+          <Redirect
+            to={props.auth.password ? routeName.home : routeName.login}
+          />
+        </Switch>
       </ConnectedRouter>
       <ToastContainer />
     </div>
   );
 };
 
-const mapStateToProps = (): any => ({});
+const mapStateToProps = (state): any => ({
+  auth: state.auth,
+});
 
 const AppWithState = connect(mapStateToProps, null)(App);
 

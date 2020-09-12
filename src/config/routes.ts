@@ -14,10 +14,11 @@ export const authRoutes: RouteConfig[] = [
     path: routeName.login,
     component: LoginPage,
   },
+];
+
+export const mainRoutes: RouteConfig[] = [
   {
     path: routeName.home,
     component: HomePage,
   },
 ];
-
-export const mainRoutes: RouteConfig[] = [];
